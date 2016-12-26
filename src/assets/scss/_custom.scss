@@ -1,0 +1,92 @@
+p.title {
+  font-weight: bold;
+  color:$white;
+  text-transform: uppercase;
+  margin-top: rem-calc(16);
+}
+
+aside {
+  margin:0!important;
+
+  ul#menu {
+    margin:0;
+    ul {
+      @include menu-icons('top');
+      @include breakpoint(large) {
+          @include menu-icons('left');
+      }
+
+      li {
+        a {
+          text-align: center;
+          font-weight: bold;
+          font-size: rem-calc(20);
+          @include breakpoint(large) {
+              text-align: left;
+          }
+          span {
+            @include breakpoint(medium) {
+              display: block;
+              font-size: rem-calc(12);
+            }
+            @include breakpoint(large) {
+              display: inline-block;
+            }
+          }
+
+          i {
+            display: inline-block;
+            @include breakpoint(large) {
+              margin-top: rem-calc(5);
+              margin-right: rem-calc(10);
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+
+  .is-accordion-submenu-parent {
+
+    & > a::after {
+      border:none;
+      color:$white;
+      content:"";
+      top:38%;
+      @include breakpoint(large) {
+          content:"+";
+      }
+    }
+  }
+
+  .is-accordion-submenu-parent[aria-expanded="true"] {
+    background-color: darken($primary-color, 10);
+    > a::after {
+      transform: initial;
+      content: "-";
+    }
+  }
+
+}
+
+.top-bar {
+  .top-bar-right {
+    padding: rem-calc(10);
+    li {
+      color:$white;
+      font-weight: bold;
+      padding-right: rem-calc(10);
+    }
+    .is-dropdown-submenu {
+      border:none;
+      background-color: darken($primary-color, 10);
+    }
+  }
+}
+
+.dashboard {
+  background-color: $light-gray;
+  padding: rem-calc(30);
+}
